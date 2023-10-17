@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Name</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- fav icon -->
+    <link rel="shorcut icon" href="all Images/Images/fav-icon.png">
+</head>
+
+<body>
+    <!-- progress bar -->
+    <div id="progress">
+        <span id="progress-value"></span>
+    </div>
+    <!-- navigation bar -->
+    <div id="nav">
+        <input type="checkbox" class="menu-btn" id="menu-btn">
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+        <!-- logo -->
+        <a href="index.html" class="logo">
+            movies<span>.hub</span>
+        </a>
+
+        <!-- menu -->
+        <ul class="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Genre</a></li>
+            <li><a href="">TV shows</a></li>
+            <li><a href="">Movies</a></li>
+            <li><a href="">Contact us</a></li>
+        </ul>
+        <!-- search bar -->
+        <form action="/" class="search-box">
+            <input type="text" name="search" placeholder="Search movie" class="search-input" required>
+            <button type="submit"><i class="ri-search-line"></i></button>
+        </form>
+    </div>
+    <!-- movie banner -->
+    <section class="movie-banner">
+        <div class="m-banner-img">
+            <img src="./all Images/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/cover.jpg" alt="">
+        </div>
+        </div>
+        <div class="banner-container">
+            <div class="title-container">
+                <div class="title-top">
+                    <div class="movie-title">
+                        <h1>Pirates of the Caribbean Salazar's Revenge</h1>
+                    </div>
+                    <div class="more-about-movie">
+                        <span class="quality">Full HD</span>
+                        <div class="rating">
+                            8.2 <img src="./all Images/Images/IMDb-icon.png" alt="">
+                        </div>
+                        <span>28 August 2017</span>
+                        <span>87 min</span>
+                    </div>
+                    <div class="language">
+                        <span>English</span>
+                    </div>
+                </div>
+                <div class="title-bottom">
+                    <div class="category">
+                        <strong>Category</strong><br>
+                        <a href="#">Horror</a>,<a href="#">Mistery</a>,<a href="#">Thriller</a>
+                    </div>
+                    <a href="#" class="watch-btn">Watch trailer</a>
+                </div>
+            </div>
+            <div class="play-btn-container">
+                <div class="play-btn">
+                    <a href="javascrpit:void">
+                        <i class="ri-play-mini-fill"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="play" class="play">
+                <a href="javascrpit:void" class="close-movie">
+                    <i class="ri-close-line"></i>
+                </a>
+                <div class="play-movie">
+                        <video id="m-video" controls>
+                            <source src="/all Images/Movie-Data/Pirates-of-the-Caribbean-Salazar's-Revenge/Movie.mp4" type="video/mp4">
+                        </video>
+                </div>
+            </div>
+    </section>
+
+
+
+
+    <script>
+        let scrollPercentage = () => {
+            let scrollPorgress = document.getElementById("progress");
+            let progressValue = document.getElementById("progress-value");
+            let pos = document.documentElement.scrollTop;
+            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollValue = Math.round(pos * 100 / calcHeight);
+            scrollPorgress.style.background = `conic-gradient(#e70634 ${scrollValue}%, #2b2f38 ${scrollValue}%)`;
+        }
+        window.onscroll = scrollPercentage;
+        window.onload = scrollPercentage;
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 20) {
+                $('#nav').addClass('fix-icon');
+            } else {
+                $('#nav').removeClass('fix-icon')
+            }
+        })
+
+        $(document).on('click','.play-btn a', function(){
+            $('.play').addClass('active-popup');
+        });
+        $(document).on('click','.close-movie a', function(){
+            $('.play').removeClass('active-popup');
+        });
+    </script>
+</body>
+
+</html>
